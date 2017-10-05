@@ -186,9 +186,3 @@ $(document).scroll(function() {
 });
 
 
-$("#getting-started")
-.countdown("2017/10/31", function(event) {
-  $(this).text(
-    event.strftime('%D days %H:%M:%S')
-  );
-});
