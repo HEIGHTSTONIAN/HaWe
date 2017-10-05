@@ -1,38 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html >
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/waffle-grid.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <title>HaWe</title>
-    <!--Add favicon-->
-    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+  <meta charset="UTF-8">
+  <title>advanced form [ sign in / sign up / social media]</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="css/reset.css"> 
+  <link rel="stylesheet" href="css/login.css">
+  <!--Add favicon-->
+  <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+  <title>HaWe</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 
 <body>
-    <div id="loader-wrapper">
-        <div id="loader"></div>
+  <div class="back"></div>
 
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-
+<div class="box">
+  
+  <div class="icon-nav">
+    <span id="sign-in"><i class="fa fa-user"></i></span></span>
+  <span id="sign-up"><i class="fa fa-pencil"></i></span></span>
+  </div>
+  
+  <div class="sign-in">
+    
+    <div class="nav">
+      <span class="nav-up"><i class="fa fa-pencil"></i></span>
     </div>
-
-    <div id="content">
-        <h1 id="white">Log In Page</h1>
-        <a href="/">
-            <div class="hawe-btn">Go Back</div>
-        </a>
+    
+    <span><i class="fa fa-user"></i></span>
+    <input type="text" placeholder="username" onfocus="this.placeholder = '' " onblur="this.placeholder = 'username'">
+    <input class="password" type="password" placeholder="password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'password'">
+    <span class="eye" onclick="showPassword()"><i class="fa fa-eye"></i></span>
+    <input type="checkbox">
+    <label>remember me</label>
+    <input type="submit" value="sign in">
+    <p id="forget-btn">forget password</p>
+    
+    <div class="forget">
+      <input type="email" placeholder="email address" onfocus="this.placeholder = '' " onblur="this.placeholder = 'email address'">
+      <input type="password" placeholder="username" onfocus="this.placeholder = '' " onblur="this.placeholder = 'username'">
+      <input type="submit" value="send">
+      <span id="close-forget"><i class="fa fa-arrow-left"></i></span>
     </div>
-    <script src="./js/preload.js"></script>  
+  </div>
+  
+  <div class="sign-up">
+    
+    <div class="nav">
+      <span class="nav-in"><i class="fa fa-user"></i></span>
+    </div>
+    
+    <span><i class="fa fa-pencil"></i></span>
+    <input type="text" placeholder="username" onfocus="this.placeholder = '' " onblur="this.placeholder = 'username'">
+    <input type="email" placeholder="email address" onfocus="this.placeholder = '' " onblur="this.placeholder = 'email address'">
+    <input class="password" type="password" placeholder="password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'password'">
+    <span class="eye" onclick="showPasswordUp()"><i class="fa fa-eye"></i></span>
+    <input class="password" type="password" placeholder="confirm password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'confirm password'">
+    <input type="submit" value="sign up">
+    
+</div>
+  
+</div>
+  
+    <script  src="js/login.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>
-
 </html>
