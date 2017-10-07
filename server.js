@@ -1,6 +1,7 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
+var expressValidator = require('express-validator');
 
 
 var app = express();
@@ -9,11 +10,29 @@ var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
 
-
+// Body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 
 app.use(express.static("public"));
