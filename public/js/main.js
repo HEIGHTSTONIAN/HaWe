@@ -151,7 +151,7 @@ particlesJS("particles-js", {
 
 var fixed = false;
 $(document).scroll(function() {
-    if ($(this).scrollTop() > 250) {
+    if ($(this).scrollTop() > 800) {
         if (!fixed) {
             fixed = true;
             // $('#to-top').css({position:'fixed', display:'block'});
@@ -165,7 +165,7 @@ $(document).scroll(function() {
               $(this).prop('Counter',0).animate({
                   Counter: $(this).text()
               }, {
-                  duration: 5000,
+                  duration: 3000,
                   easing: 'swing',
                   step: function (now) {
                       $(this).text(Math.ceil(now));
