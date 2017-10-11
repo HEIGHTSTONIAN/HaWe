@@ -151,7 +151,7 @@ particlesJS("particles-js", {
 
 var fixed = false;
 $(document).scroll(function() {
-    if ($(this).scrollTop() > 250) {
+    if ($(this).scrollTop() > 800) {
         if (!fixed) {
             fixed = true;
             // $('#to-top').css({position:'fixed', display:'block'});
@@ -165,7 +165,7 @@ $(document).scroll(function() {
               $(this).prop('Counter',0).animate({
                   Counter: $(this).text()
               }, {
-                  duration: 5000,
+                  duration: 3000,
                   easing: 'swing',
                   step: function (now) {
                       $(this).text(Math.ceil(now));
@@ -203,6 +203,31 @@ anime.timeline({loop: true})
     }
   }).add({
     targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+  // Wrap every letter in a span
+$('.ml7 .letters').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml7 .letter',
+    translateY: ["1.1em", 0],
+    translateX: ["0.55em", 0],
+    translateZ: 0,
+    rotateZ: [180, 0],
+    duration: 750,
+    easing: "easeOutExpo",
+    delay: function(el, i) {
+      return 50 * i;
+    }
+  }).add({
+    targets: '.ml7',
     opacity: 0,
     duration: 1000,
     easing: "easeOutExpo",
