@@ -19,8 +19,8 @@ var todos = [];
 //Buttons
 $(document).on("submit", "#newTask", insertTodo);
 $(document).on("submit", "#tasklist", toggleDone);
-//$(document).on("submit", "#tasklist", toggleTodo);
-//$(document).on("submit", "#delete-button", insertTodo);
+$(document).on("click", "#to-do-button", toggleTodo);
+$(document).on("click", "#delete-button", deleteTodo);
 
 
 
@@ -49,7 +49,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
 
       initializeRows();  //this will start the process of making rows
   });
- }
+ }//end of getTodos
 
 // This function inserts a new todo into our database and then updates the view
   function insertTodo(event) {
@@ -77,7 +77,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
 		"<li>",
 			"<div class='status'>To Do</div>",
 			"<input class='check-status' type='checkbox' name='id' value='",
-			todo.id,
+			todo.id,  //this is how I am grabbing the checkboxes  "value=id"
 			"' />",
 			"<span>", 
 			todo.text, 
@@ -86,7 +86,8 @@ getTodos();// this happens on page load to get the tasks and start working on th
       ].join("")
     );
 
-  //Storing data in the $newInputRow
+  //Storing data in the $newInputRow and in html elements
+  $newInputRow.find("button.delete").data("id", todo.id);
   $newInputRow.data("todo", todo);
   console.log(todo);
   console.log($newInputRow.data());
@@ -96,10 +97,13 @@ getTodos();// this happens on page load to get the tasks and start working on th
     if (todo.complete) {
       $newInputRow.find("div.status").html("Done");
       $newInputRow.find("div.status").toggleClass("done");
+    }else{
+      $newInputRow.find("div.status done").html("To Do");
+      $newInputRow.find("div.status").toggleClass("done");      
     }
-
+    
     return $newInputRow;
-  }
+  }//end of createNewRow
 
 // This function updates a todo in our database
   function updateTodo(todo) {
@@ -109,10 +113,11 @@ getTodos();// this happens on page load to get the tasks and start working on th
       url: "/app/todos/",
       data: todo   //todo is an object
     }).done(getTodos);
-  }  
+  }//end of updateTodo  
 
 
-  function toggleDone(event) {
+//*************toggleDone and toggleTodo can probably be combined**********
+  function toggleDone() {
     event.preventDefault();
     event.stopPropagation();
     console.log("Inside toggleDone");
@@ -127,16 +132,16 @@ getTodos();// this happens on page load to get the tasks and start working on th
       console.log(todo);
       updateTodo(todo);
     });
-  }
+  }//end of toggledone
   
-  function toggleTodo(event) {
+  function toggleTodo() {
     event.preventDefault();
     event.stopPropagation();
-    console.log("Inside toggleDone");
+    console.log("Inside toggleTodo");
     var toggleArr = [];
-    $("input:checkbox[name=id]:checked").each(function(){
-      //toggleArr.push($(this).val());
-      
+    
+
+    $("input:checkbox[name=id]:checked").each(function(){      
       var todo = {
         id: parseInt($(this).val()),
         complete: false
@@ -144,10 +149,26 @@ getTodos();// this happens on page load to get the tasks and start working on th
       console.log(todo);
       updateTodo(todo);
     });
+   }//end of toggle todo
+
+
+//Deletes a task
+  function deleteTodo() {
+    console.log("deleteTodo is running.")
+    $("input:checkbox[name=id]:checked").each(function(){      
+      var todo = {
+        id: parseInt($(this).val()),
+      }
+        console.log(todo);
+    
+        $.ajax({
+          method: "DELETE",
+          url: "/app/todos/",
+          data: todo
+        }).done(getTodos);    
+    });
 
   }
-
-
 
 
 });

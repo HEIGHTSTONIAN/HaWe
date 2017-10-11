@@ -11,8 +11,6 @@ module.exports = function(app) {
 
    db.Todo.findAll({}).then(function(results){
       res.json(results);
-      //console.log("Results in app.get:")
-      //console.log(results);
    });
  });
 
@@ -48,24 +46,9 @@ module.exports = function(app) {
     //res.redirect("/app");
   });
 
-// DELETE route for deleting todos. We can get the id of the todo to be deleted from
-  // req.params.id
-  // app.delete("/app/todos/:id", function(req, res) {
-  //   // We just have to specify which todo we want to destroy with "where"
-  //   db.Todo.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(dbTodo) {
-  //     res.json(dbTodo);
-  //   });
-// });
-
 // PUT route for updating the status of todos
   app.put("/app/todos", function(req, res) {
-
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
+    
     db.Todo.update({
       complete: req.body.complete
     }, {
@@ -82,4 +65,18 @@ module.exports = function(app) {
     });
      //res.redirect("/app")
   });
-}
+
+
+// DELETE route for deleting todos. 
+  app.delete("/app/todos/", function(req, res) {
+    console.log(req.body);
+    db.Todo.destroy({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+
+}//end of module
