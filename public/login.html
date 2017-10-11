@@ -13,6 +13,7 @@
   <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
   <title>HaWe</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -32,13 +33,15 @@
     </div>
     
     <span><i class="fa fa-user"></i></span>
-    <input type="text" placeholder="username" onfocus="this.placeholder = '' " onblur="this.placeholder = 'username'">
-    <input class="password" type="password" placeholder="password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'password'">
-    <span class="eye" onclick="showPassword()"><i class="fa fa-eye"></i></span>
-    <input type="checkbox">
-    <label>remember me</label>
-    <input type="submit" value="sign in" onclick="window.location='/app'">
-    <p id="forget-btn">forget password</p>
+    <form class="loggingin">
+      <input id="login-username" type="text" name="username" placeholder="username" onfocus="this.placeholder = '' " onblur="this.placeholder = 'username'">
+      <input id="login-password"class="password" name="password" type="password" placeholder="password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'password'">
+      <span class="eye" onclick="showPassword()"><i class="fa fa-eye"></i></span>
+      <input type="checkbox">
+      <label>remember me</label>
+      <input type="submit" id="login-btn" value="sign in">
+      <p id="forget-btn">forget password</p>
+    </form>
     
     <div class="forget">
       <input type="email" placeholder="email address" onfocus="this.placeholder = '' " onblur="this.placeholder = 'email address'">
@@ -61,9 +64,7 @@
       <input class="password" name="password" type="password" placeholder="password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'password'">
       <span class="eye" onclick="showPasswordUp()"><i class="fa fa-eye"></i></span>
       <input class="password" name="passwordMatch" type="password" placeholder="confirm password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'confirm password'">
-      <button type="submit"> Submit </button>
-      
-      <!-- <input type="submit" value="sign up" onclick="window.location='/app'"> -->
+      <input type="submit" value="sign up">
     </form>
     
 </div>

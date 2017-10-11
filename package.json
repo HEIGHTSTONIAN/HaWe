@@ -11,7 +11,10 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.1",
+    "express-session": "^1.15.6",
     "express-validator": "^4.2.1",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.2",

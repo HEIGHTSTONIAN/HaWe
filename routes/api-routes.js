@@ -1,18 +1,23 @@
 
 var db = require("../models");
-var express = require("express");
-var router = express.Router();
+var passport = require("../config/passport");
 
 module.exports = function (app) {
 
+    //Logging in
+    app.post('/login', passport.authenticate('local'), (req, res) => {
+        console.log("hopefully logging in");
+        res.json('/app');
+    });
+
     //Getting User Sign Up info to Database
-    app.post("/register", function(req, res) {
+    app.post("/register", function (req, res) {
 
         console.log("signing up");
 
         const username = req.body.username;
         const email = req.body.email;
-        const password = req.body.email;
+        const password = req.body.password;
 
         req.checkBody('username', 'Name is required').notEmpty();
         req.checkBody('username', 'Username must be between 4-15 characters long.').len(4, 15);
@@ -26,7 +31,7 @@ module.exports = function (app) {
 
         var errors = req.validationErrors();
 
-        if(errors){
+        if (errors) {
             console.log(errors);
             res.redirect('/login');
         } else {
@@ -34,15 +39,24 @@ module.exports = function (app) {
                 username: username,
                 email: email,
                 password: password
-              }).then(function(dbUser) {
-                console.log("did this2");
-                res.json(dbUser);
-              });
+            }).then(function (dbUser) {
+                console.log("User Created.");
+                res.redirect('/login');
+            });
 
-              res.redirect('/app');
-            
         }
 
-      });
+    });
+
+    // Route for logging user out
+    app.get("/logout", function (req, res) {
+        req.logout();
+        res.redirect("/");
+    });
+
+
+
+
+
 
 };

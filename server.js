@@ -1,7 +1,11 @@
 
 var express = require("express");
+var cookieParser = require('cookie-parser');
 var bodyParser = require("body-parser");
 var expressValidator = require('express-validator');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 
 var app = express();
@@ -15,6 +19,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// Express Session
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Express Validator
 app.use(expressValidator({
@@ -34,7 +49,7 @@ app.use(expressValidator({
   }
 }));
 
-
+// Static Folder
 app.use(express.static("public"));
 
 
@@ -42,7 +57,7 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
