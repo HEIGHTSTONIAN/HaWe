@@ -2,6 +2,7 @@ var db = require("../models");
 
 
 //****Routes will need to be modified when user table is added******
+//****Will also need to modify if making multiple lists*************
 //*******************************************************************
 module.exports = function(app) {
 
@@ -10,8 +11,8 @@ module.exports = function(app) {
 
    db.Todo.findAll({}).then(function(results){
       res.json(results);
-      console.log("Results in app.get:")
-      console.log(results);
+      //console.log("Results in app.get:")
+      //console.log(results);
    });
  });
 
@@ -58,28 +59,27 @@ module.exports = function(app) {
   //   }).then(function(dbTodo) {
   //     res.json(dbTodo);
   //   });
-
 // });
 
-// PUT route for updating todos. We can get the updated todo data from req.body
-  // app.put("/app/todos/:id/:id", function(req, res) {
+// PUT route for updating the status of todos
+  app.put("/app/todos", function(req, res) {
 
-  //   // Update takes in an object describing the properties we want to update, and
-  //   // we use where to describe which objects we want to update
-  //   db.Todo.update({
-  //     text: req.body.text,
-  //     complete: req.body.complete
-  //   }, {
-  //     where: {
-  //       id: req.body.id
-  //     }
-  //   }).then(function(dbTodo) {
-  //     res.json(dbTodo);
-  //   })
-  //   .catch(function(err) {
-  //     // Whenever a validation or flag fails, an error is thrown
-  //     // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-  //     res.json(err);
-  //   });
-  // });
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Todo.update({
+      complete: req.body.complete
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
+     //res.redirect("/app")
+  });
 }

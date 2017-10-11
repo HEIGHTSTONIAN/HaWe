@@ -1,8 +1,6 @@
 //***The code as is will get all task.****  
 //When users table is read we can link them up 
 //so only the logged in users task will show
-
-
 $(document).ready(function() {
 
 
@@ -17,7 +15,13 @@ var $todoContainer = $("#tasks-list");
 //todos array that is used for holding todos to push into the html
 var todos = [];
 
+
+//Buttons
 $(document).on("submit", "#newTask", insertTodo);
+$(document).on("submit", "#tasklist", toggleDone);
+//$(document).on("submit", "#tasklist", toggleTodo);
+//$(document).on("submit", "#delete-button", insertTodo);
+
 
 
 getTodos();// this happens on page load to get the tasks and start working on them
@@ -28,10 +32,10 @@ getTodos();// this happens on page load to get the tasks and start working on th
     console.log("Inside of initializeRows");
     $todoContainer.empty();
     var rowsToAdd = [];
-    console.log(todos);
+    //console.log(todos);
     for (var i = 0; i < todos.length; i++) {
       rowsToAdd.push(createNewRow(todos[i]));
-      console.log(rowsToAdd);
+      //console.log(rowsToAdd);
     }
     $todoContainer.prepend(rowsToAdd);
   }
@@ -47,21 +51,12 @@ getTodos();// this happens on page load to get the tasks and start working on th
   });
  }
 
-// This function updates a todo in our database
-  function updateTodo(todo) {
-    $.ajax({
-      method: "PUT",
-      url: "/app/todos/",
-      data: todo
-    }).done(getTodos);
-  }
-
 // This function inserts a new todo into our database and then updates the view
   function insertTodo(event) {
     event.preventDefault();
     console.log("Inside of insertTodo");
     
-    var newItem = event;
+    //var newItem = event;
     var todo = {
       text: $newItemInput.val().trim(),
       complete: false
@@ -81,7 +76,9 @@ getTodos();// this happens on page load to get the tasks and start working on th
       [
 		"<li>",
 			"<div class='status'>To Do</div>",
-			"<input class='check-status' type='checkbox' name='task[]' />",
+			"<input class='check-status' type='checkbox' name='id' value='",
+			todo.id,
+			"' />",
 			"<span>", 
 			todo.text, 
 			"</span>",
@@ -89,15 +86,66 @@ getTodos();// this happens on page load to get the tasks and start working on th
       ].join("")
     );
 
-//****Haven't test yet*******I don't think .changeClass will work
+  //Storing data in the $newInputRow
+  $newInputRow.data("todo", todo);
+  console.log(todo);
+  console.log($newInputRow.data());
+
+
 //Marks the task as Done if the todo.complete is true
     if (todo.complete) {
-      $newInputRow.find("div.status").changeClass("done");
+      $newInputRow.find("div.status").html("Done");
+      $newInputRow.find("div.status").toggleClass("done");
     }
 
     return $newInputRow;
   }
 
+// This function updates a todo in our database
+  function updateTodo(todo) {
+    console.log("Update todo ran");
+    $.ajax({
+      method: "PUT",
+      url: "/app/todos/",
+      data: todo   //todo is an object
+    }).done(getTodos);
+  }  
+
+
+  function toggleDone(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("Inside toggleDone");
+    var toggleArr = [];
+    $("input:checkbox[name=id]:checked").each(function(){
+      //toggleArr.push($(this).val());
+      
+      var todo = {
+        id: parseInt($(this).val()),
+        complete: true
+      }
+      console.log(todo);
+      updateTodo(todo);
+    });
+  }
+  
+  function toggleTodo(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("Inside toggleDone");
+    var toggleArr = [];
+    $("input:checkbox[name=id]:checked").each(function(){
+      //toggleArr.push($(this).val());
+      
+      var todo = {
+        id: parseInt($(this).val()),
+        complete: false
+      }
+      console.log(todo);
+      updateTodo(todo);
+    });
+
+  }
 
 
 
