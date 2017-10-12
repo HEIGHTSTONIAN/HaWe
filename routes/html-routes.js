@@ -31,13 +31,26 @@ module.exports = function(app) {
     if (req.user) {
       res.render("user");
     }
+
+    res.redirect("/login");
+  
+
   });
 
   // App Page
-  app.get("/app", isAuthenticated, function(req, res) {
+  app.get("/api/app", isAuthenticated, function(req, res) {
+
     if (req.user) {
       res.render("app");
     }
+  });
+
+  app.get("/app", function(req, res) {
+    if (req.user) {
+      res.render("app");
+    }
+  
+
   });
 
 };

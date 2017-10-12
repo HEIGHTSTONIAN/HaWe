@@ -7,9 +7,17 @@ var db = require("../models");
 module.exports = function(app) {
 
 //GET route for getting all of the todos
- app.get("/app/todos/", function(req, res) {
+ app.get("/api/todos/", function(req, res) {
 
-   db.Todo.findAll({}).then(function(results){
+   db.Todo.findAll({
+     where: {
+       UserId: req.user
+     },
+     order: [
+       ['UserId', 'DESC'],
+       ['complete', 'DESC']
+     ]
+   }).then(function(results){
       res.json(results);
    });
  });
@@ -29,14 +37,16 @@ module.exports = function(app) {
 
 
 // POST route for saving a new todo
-  app.post("/app/todos/", function(req, res) {
+  app.post("/api/todos", function(req, res) {
 
     console.log("req.body in app.post: ");
     console.log(req.body);
+    console.log(req.user);
     
     db.Todo.create({
     		text: req.body.text, 
-        complete: req.body.complete 
+        complete: req.body.complete,
+        UserId: req.user
     	}).then(function(dbTodo) {
       res.json(dbTodo)
     })

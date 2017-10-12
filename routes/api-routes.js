@@ -5,13 +5,13 @@ var passport = require("../config/passport");
 module.exports = function (app) {
 
     //Logging in
-    app.post('/login', passport.authenticate('local'), (req, res) => {
+    app.post('/api/login', passport.authenticate('local'), (req, res) => {
         console.log("hopefully logging in");
         res.json('/app');
     });
 
     //Getting User Sign Up info to Database
-    app.post("/register", function (req, res) {
+    app.post("/api/register", function (req, res) {
 
         console.log("signing up");
 
@@ -71,5 +71,6 @@ module.exports = function (app) {
           }
         
     });
+
 
 };
