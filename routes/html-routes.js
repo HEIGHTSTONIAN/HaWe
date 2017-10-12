@@ -25,14 +25,19 @@ module.exports = function(app) {
 
     res.render("login");
   });
+
+  // Badge Page
   app.get("/user", function(req, res) {
-    res.redirect("/user");
+    if (req.user) {
+      res.render("user");
+    }
   });
 
   // App Page
   app.get("/app", isAuthenticated, function(req, res) {
-    console.log("app");
-    res.render("app");
+    if (req.user) {
+      res.render("app");
+    }
   });
 
 };
