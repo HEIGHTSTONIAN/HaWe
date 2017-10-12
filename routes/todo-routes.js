@@ -22,24 +22,23 @@ module.exports = function(app) {
    });
  });
 
- //Get route for getting all of the todos of a specific user
- //  app.get("/app/todos/:id", function(req, res) {
- //   var query = {};
- //   if (req.query.user_id) {
- //     query.UserId = req.query.user_id
- //   }
- //   db.Todo.findAll({
- //      where: query
- //   }).then(function(results){
- //      res.json(results);
- //   });
- // });
-
+//GET route for user id
+ app.get("/app.json", function(req, res) {
+    console.log(req.user);
+    console.log("req.todo "+req.body.text);
+   db.User.findAll({
+    where: {
+      id: req.user
+    }
+   }).then(function(results){
+      console.log(results[0].id);
+      res.json(results[0].id);
+   });
+ }); 
 
 // POST route for saving a new todo
   app.post("/api/todos", function(req, res) {
-
-    console.log("req.body in app.post: ");
+    
     console.log(req.body);
     console.log(req.user);
     

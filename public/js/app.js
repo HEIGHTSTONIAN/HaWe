@@ -14,6 +14,8 @@ var $todoContainer = $("#tasks-list");
 //var $newInputRow = [];
 //todos array that is used for holding todos to push into the html
 var todos = [];
+var user = 0;
+
 
 
 //Buttons
@@ -27,6 +29,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
 
 // Displays Todos
   function getTodos() {
+
     console.log("In getTodos");
     $.get("/api/todos", function(data) {
 
@@ -42,9 +45,6 @@ getTodos();// this happens on page load to get the tasks and start working on th
 
         console.log("ID: " + data[i].id);
 
-        // var doneStatus = '"#status-' + data[i].id + '"'
-        // console.log(doneStatus);
-
         if (data[i].complete === true) {
           $("div#" + data[i].id).html("Done");
           $("div#" + data[i].id).toggleClass("done");
@@ -56,6 +56,16 @@ getTodos();// this happens on page load to get the tasks and start working on th
       
   });
  }//end of getTodos
+ 
+//Gets the user Id out of the db
+  function getUser() {
+    console.log("In getUser");
+    $.get("/app.json", function(data) {
+      user = data;
+      console.log(user);
+      return user;
+  });
+ } 
 
 // This function inserts a new todo into our database and then updates the view
   function insertTodo(event) {
