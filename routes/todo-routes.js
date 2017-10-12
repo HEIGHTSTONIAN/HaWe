@@ -8,35 +8,40 @@ module.exports = function(app) {
 
 //GET route for getting all of the todos
  app.get("/app/todos/", function(req, res) {
-
-   db.Todo.findAll({}).then(function(results){
+   console.log("req.user: "+req.user);
+   db.Todo.findAll({
+    where: {
+      UserId: req.user
+    }
+   }).then(function(results){
       res.json(results);
    });
  });
 
- //Get route for getting all of the todos of a specific user
- //  app.get("/app/todos/:id", function(req, res) {
- //   var query = {};
- //   if (req.query.user_id) {
- //     query.UserId = req.query.user_id
- //   }
- //   db.Todo.findAll({
- //      where: query
- //   }).then(function(results){
- //      res.json(results);
- //   });
- // });
-
+//GET route for user id
+ app.get("/app.json", function(req, res) {
+    console.log(req.user);
+    console.log("req.todo "+req.body.text);
+   db.User.findAll({
+    where: {
+      id: req.user
+    }
+   }).then(function(results){
+      console.log(results[0].id);
+      res.json(results[0].id);
+   });
+ }); 
 
 // POST route for saving a new todo
   app.post("/app/todos/", function(req, res) {
 
-    console.log("req.body in app.post: ");
+    console.log("Line 34 in todo-routes");
     console.log(req.body);
     
     db.Todo.create({
     		text: req.body.text, 
-        complete: req.body.complete 
+        complete: req.body.complete,
+        UserId: req.body.UserId 
     	}).then(function(dbTodo) {
       res.json(dbTodo)
     })

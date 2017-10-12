@@ -16,5 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     },
 
    });
+    
+   Todo.associate = function(models){
+     Todo.belongsTo(models.User, {
+      allowNull: true     
+     }); // closes belong to
+   }  
+  
   return Todo;
 };
