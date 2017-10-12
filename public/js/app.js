@@ -49,7 +49,9 @@ getTodos();// this happens on page load to get the tasks and start working on th
           $("div#" + data[i].id).html("Done");
           $("div#" + data[i].id).toggleClass("done");
 
+          $("input[type=checkbox][id=" + data[i].id + "]").prop("checked", true);
           $("input[type=checkbox][id=" + data[i].id + "]").prop({disabled : true});
+          
         }
 
       }
