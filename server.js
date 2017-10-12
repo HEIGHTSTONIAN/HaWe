@@ -6,10 +6,15 @@ var expressValidator = require('express-validator');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var path = require('path');
 
 
 var app = express();
 var PORT = process.env.PORT || 8080;
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
 
 var db = require("./models");
@@ -51,6 +56,29 @@ app.use(expressValidator({
 
 // Static Folder
 app.use(express.static("public"));
+
+
+// Handlebars default config
+const hbs = require('hbs');
+const fs = require('fs');
+
+const partialsDir = __dirname + '/views/partials';
+
+const filenames = fs.readdirSync(partialsDir);
+
+filenames.forEach(function (filename) {
+  const matches = /^([^.]+).hbs$/.exec(filename);
+  if (!matches) {
+    return;
+  }
+  const name = matches[1];
+  const template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
+  hbs.registerPartial(name, template);
+});
+
+hbs.registerHelper('json', function(context) {
+    return JSON.stringify(context, null, 2);
+});
 
 
 require("./routes/api-routes.js")(app);

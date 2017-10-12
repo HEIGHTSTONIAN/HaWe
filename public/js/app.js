@@ -152,7 +152,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
    }//end of toggle todo
 
 
-//Deletes a task
+  //Deletes a task
   function deleteTodo() {
     console.log("deleteTodo is running.")
     $("input:checkbox[name=id]:checked").each(function(){      
