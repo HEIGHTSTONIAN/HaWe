@@ -62,7 +62,7 @@ app.use(express.static("public"));
 const hbs = require('hbs');
 const fs = require('fs');
 
-const partialsDir = __dirname + '/views';
+const partialsDir = __dirname + '/views/partials';
 
 const filenames = fs.readdirSync(partialsDir);
 
