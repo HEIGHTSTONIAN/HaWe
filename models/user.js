@@ -27,9 +27,9 @@ module.exports = function(sequelize, DataTypes) {
     User.hook("beforeCreate", function(user) {
       user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
-  
 
-<<<<<<< HEAD:models/user.js
+
+
     // Associate with Tasks
     User.associate = function(models) {
       // When an Author is deleted, also delete any associated Posts
@@ -38,10 +38,7 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
 
-=======
-  User.associate = function(models){
-    User.hasMany(models.Todo);
-  };
->>>>>>> 1ab2b01be5d453324a40641747998e7608667806:models/usersignup.js
+
+    
     return User;
   };
