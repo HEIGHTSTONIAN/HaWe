@@ -6,6 +6,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
+  // Home Page
   app.get("/", function(req, res) {
 
     if (req.user) {
@@ -15,6 +16,7 @@ module.exports = function(app) {
     res.render("hawe");
   });
 
+  // Log In Page
   app.get("/login", function(req, res) {
 
     if (req.user) {
@@ -27,7 +29,7 @@ module.exports = function(app) {
     res.redirect("/user");
   });
 
-  // blog route loads blog.html
+  // App Page
   app.get("/app", isAuthenticated, function(req, res) {
     console.log("app");
     res.render("app");

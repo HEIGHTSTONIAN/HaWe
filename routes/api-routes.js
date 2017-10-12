@@ -55,6 +55,23 @@ module.exports = function (app) {
     });
 
 
-    
+    // Route to get username/other data
+    app.get("/app", function(req, res){
+
+        
+        
+        if (req.user) {
+
+            db.User.findAll({
+                where: {
+                    id: req.user
+                }
+            }).then(function(data) {
+                console.log(data[0].username);
+                res.render("app", {username: data[0].username});
+            });
+          }
+        
+    });
 
 };
