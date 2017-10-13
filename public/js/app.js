@@ -22,8 +22,8 @@ $(document).on("submit", "#tasklist", toggleDone);
 $(document).on("click", "#delete-button", deleteTodo);
 
 
-getTodos();// this happens on page load to get the tasks and start working on them
-//getUserCount()
+//getTodos();// this happens on page load to get the tasks and start working on them
+getUserCount()
 
 // Displays Todos
   function getTodos() {
@@ -44,7 +44,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
         console.log("ID: " + data[i].id);
 
         if (data[i].complete === true) {
-          
+          console.log(data[i].complete);
           completionCount++;
           console.log(completionCount);
           $("div#" + data[i].id).html("Done");
@@ -65,11 +65,11 @@ getTodos();// this happens on page load to get the tasks and start working on th
     console.log("In getUser");
       
     $.get("/app.json", function(data) {
-      runningCount += data;
+      completionCount = data;
       console.log("This is # of completed tasks in user.js: "+data);
-      console.log("Running Count: "+runningCount);
+      console.log("Running Count: "+completionCount);
 
-  }).done(getTodoComp);
+  }).done(getTodos);
 
 }; 
 
@@ -110,7 +110,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
     }).then(function(data) {
       console.log(data);
       $newItemInput.val("");
-      getTodos();
+      getUserCount();
     }).catch(function(err) {
       console.log(err);
     });
@@ -123,7 +123,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
       method: "PUT",
       url: "/app/todos/",
       data: todo   //todo is an object
-    }).done(getTodos);
+    }).done(getUserCount);
   }//end of updateTodo  
 
 //This function updates the count in user table
@@ -147,9 +147,8 @@ getTodos();// this happens on page load to get the tasks and start working on th
     event.stopPropagation();
     console.log("Inside toggleDone");
        
-    $("input[type=checkbox]:checked").each(function(){
-      //toggleArr.push($(this).val());
-  //////completionCount++;
+$("input[type=checkbox]:checked").each(function(){      
+      completionCount++;
       var todo = {
         id: parseInt($(this).val()),
         complete: true
@@ -180,7 +179,7 @@ getTodos();// this happens on page load to get the tasks and start working on th
           method: "DELETE",
           url: "/app/todos/",
           data: todo
-        }).done(getTodos, getUserCount);    
+        }).done(getUserCount);    
      });
   }
 

@@ -38,7 +38,7 @@ console.log(10)
    }  
    
    for(var i = 0; i < awarded; i++){ 
-      $("#badges").find("div").eq(i).css("opacity", "1.0")
+      $("#badges").find("div").eq(i).css("display", "inline")
    }
   console.log("Number of earned badges: "+awarded);
 }
