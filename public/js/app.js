@@ -72,22 +72,7 @@ getUserCount()
   }).done(getTodos);
 
 }; 
-
-//Getting the number of tasks marked as complete in Todo table
- //  function getTodoComp() {
- //    console.log("In getTodoComp");
- //    $.get("/app/todos", function(data) {
- //      count = data.length;
- //    if(count>0){
- //      runningCount += count;
- //      console.log(count);
- //      console.log("This is the stuff in getTodoComp: "+runningCount);
- //      }else{
- //      console.log("This is the stuff in getTodoComp: "+runningCount); 
- //    }    
- //  }).done(updateCount);
- // } 
-
+ 
 // This function inserts a new todo into our database and then updates the view
   function insertTodo(event) {
     event.preventDefault();
@@ -137,7 +122,7 @@ getUserCount()
       method: "PUT",
       url: "/app.json/",
       data: counts   
-    });
+    }).done(badgeAlert)
   
  }
 
@@ -196,7 +181,16 @@ $("input[type=checkbox]:checked").each(function(){
      });
   }
 
-});
+  function badgeAlert(){
+
+    if(completionCount % 5 == 0){
+      alert("You have been awarded a new badge!");
+      return;
+    }
+
+  }
+
+});//end of document
 
 
 
