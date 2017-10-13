@@ -45,7 +45,7 @@ getUserCount()
 
         if (data[i].complete === true) {
           console.log(data[i].complete);
-          completionCount++;
+          //completionCount++;
           console.log(completionCount);
           $("div#" + data[i].id).html("Done");
           $("div#" + data[i].id).toggleClass("done");
@@ -146,8 +146,15 @@ getUserCount()
     event.preventDefault();
     event.stopPropagation();
     console.log("Inside toggleDone");
-       
+
+//need to add a check to see if it has been counted already       
 $("input[type=checkbox]:checked").each(function(){      
+      
+    if($("input[type=checkbox]:checked").hasClass("counted")){
+        console.log("Already counted");
+    }else{  
+
+      $("input[type=checkbox]:checked").addClass("counted")
       completionCount++;
       var todo = {
         id: parseInt($(this).val()),
@@ -159,10 +166,12 @@ $("input[type=checkbox]:checked").each(function(){
       }
       console.log(todo);
       updateTodo(todo);
-////////console.log("Count 142: "+count);
+      console.log("Count 162: "+count);
       updateCount(count);
-    });
-  }//end of toggledone
+    }//end of else
+  });
+    
+}  
 
 //Deletes a task
   function deleteTodo() {
