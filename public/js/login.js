@@ -29,19 +29,19 @@ signUpBtn.onclick = function () {
   forgetForm.style.opacity = "0";
 }
 
-forgetBtn.onclick = function () {
-  'use strict';
+// forgetBtn.onclick = function () {
+//   'use strict';
 
-  forgetForm.style.transform = "scale(1,1)";
-  forgetForm.style.opacity = "1";
-}
+//   forgetForm.style.transform = "scale(1,1)";
+//   forgetForm.style.opacity = "1";
+// }
 
-document.getElementById("close-forget").onclick = function () {
-  'use strict';
+// document.getElementById("close-forget").onclick = function () {
+//   'use strict';
 
-  forgetForm.style.transform = "scale(0,0)";
-  forgetForm.style.opacity = ".2";
-}
+//   forgetForm.style.transform = "scale(0,0)";
+//   forgetForm.style.opacity = ".2";
+// }
 
 
 

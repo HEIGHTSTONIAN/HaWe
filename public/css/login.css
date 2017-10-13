@@ -128,9 +128,7 @@ body{
   cursor: pointer;
 }
 
-.sign-in input:nth-of-type(3){
-  margin: 10px 2px 10px 33px;
-}
+
 .sign-in input:nth-of-type(4),
 .sign-in .forget input[type="submit"]{
   display: block;
@@ -161,34 +159,10 @@ body{
 
 
 
-.sign-in .forget{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 53%;
-  background: #F78759;
-  padding: 20px 10px;
-  transition: all 0.8s ease;
-  transform: scale(0,0);
-  transform-origin: 0 100%;
-  opacity: .3;
-}
 
-.sign-in .forget input[type="submit"]{
-  margin-top: 25px
-}
 
-.sign-in .forget span:last-child{
-  border: 2px solid #fff;
-  width: 40px;
-  height: 40px;
-  display: block;
-  text-align: center;
-  line-height: 35px;
-  font-size: 20px;
-  cursor: pointer;
-}
+
+
 
 .sign-up{
   position: absolute;
@@ -276,7 +250,7 @@ body{
 }
 
 .cassandra {
-  display: block;
+  display: block !important;
   margin: 5px auto;
   width: 100px;
   height: 40px;
@@ -287,6 +261,7 @@ body{
   text-transform: capitalize;
   cursor: pointer;
   transition: all .3s ease;
+  text-align: center !important;
 }
 
 .cassandra:hover{
@@ -302,3 +277,4 @@ body{
 input {
   font-family: Mystery Quest !important;
 }
+
