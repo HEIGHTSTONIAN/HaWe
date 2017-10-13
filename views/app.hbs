@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="./css/app.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">  
-  <title>HaWe</title>
-  <!--Add favicon-->
-  <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
-  
-  
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="./css/app.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<title>HaWe</title>
+	<!--Add favicon-->
+	<link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
 		<div id="user-panel">
 			<a href="/user">
 				<div class="avatar">
-					<img src="./img/ava.png" alt="Avatar"/>
+					<img src="./img/ava.png" alt="Avatar" />
 				</div>
 				<div class="welcome">
 					<span>Welcome, </span>
@@ -34,29 +36,34 @@
 		<div id="lists-names">
 			<a href="/logout" class="button">Log Out</a>
 		</div>
-	</div> 
+	</div>
 	<div id="main-content">
 		<div id="new-task">
 			<form id="newTask">
 				<div id="new-task-form">
-					<div><input type="text" name="taskName" id="taskName" placeholder="Enter your new task..." /></div>
-					<div ><input type="submit" name="action-task-add" class="button" id="action-task-add" value="Add Task"/></div>
+					<div>
+						<input type="text" name="taskName" id="taskName" placeholder="Enter your new task..." />
+					</div>
+					<div>
+						<input type="submit" name="action-task-add" class="button" id="action-task-add" value="Add Task" />
+					</div>
 				</div>
 			</form>
 		</div>
 		<div id="tasks-list-container">
-			<form id="tasklist"> <!-- <form method="post" action=""> --> 
+			<form id="tasklist">
+				<!-- <form method="post" action=""> -->
 				<ul id="tasks-list">
 				</ul>
 				<div id="tasks-list-actions">
-					<input type="submit" id="done-button" name="action-task-done" class="button" value="Mark as Done"/>
-					<input type="button" id="delete-button" name="action-task-delete" class="button red" value="Delete Selected"/>
+					<input type="submit" id="done-button" name="action-task-done" class="button" value="Mark as Done" />
+					<input type="button" id="delete-button" name="action-task-delete" class="button red" value="Delete Selected" />
 				</div>
 			</form>
 		</div>
 	</div>
+	
 	<script src="./js/app.js"></script>
 </body>
-</html>
-  
 
+</html>
