@@ -1,6 +1,3 @@
-//***The code as is will get all task.****  
-//When users table is read we can link them up 
-//so only the logged in users task will show
 $(document).ready(function() {
 
 
@@ -15,7 +12,8 @@ var $todoContainer = $("#tasks-list");
 //todos array that is used for holding todos to push into the html
 var todos = [];
 var user = 0;
-
+var completionCount = 0;
+var runningCount = 0;
 
 
 //Buttons
@@ -25,14 +23,14 @@ $(document).on("click", "#delete-button", deleteTodo);
 
 
 getTodos();// this happens on page load to get the tasks and start working on them
-
+//getUserCount()
 
 // Displays Todos
   function getTodos() {
-
+    
     console.log("In getTodos");
     $.get("/api/todos", function(data) {
-
+      
       console.log(data);
 
       $todoContainer.empty();
@@ -46,6 +44,9 @@ getTodos();// this happens on page load to get the tasks and start working on th
         console.log("ID: " + data[i].id);
 
         if (data[i].complete === true) {
+          
+          completionCount++;
+          console.log(completionCount);
           $("div#" + data[i].id).html("Done");
           $("div#" + data[i].id).toggleClass("done");
 
@@ -55,26 +56,44 @@ getTodos();// this happens on page load to get the tasks and start working on th
         }
 
       }
-      
-  });
+
+     });
  }//end of getTodos
- 
-//Gets the user Id out of the db
-  function getUser() {
+
+//Gets the completion count in User table
+  function getUserCount() {
     console.log("In getUser");
+      
     $.get("/app.json", function(data) {
-      user = data;
-      console.log(user);
-      return user;
-  });
- } 
+      runningCount += data;
+      console.log("This is # of completed tasks in user.js: "+data);
+      console.log("Running Count: "+runningCount);
+
+  }).done(getTodoComp);
+
+}; 
+
+//Getting the number of tasks marked as complete in Todo table
+ //  function getTodoComp() {
+ //    console.log("In getTodoComp");
+ //    $.get("/app/todos", function(data) {
+ //      count = data.length;
+ //    if(count>0){
+ //      runningCount += count;
+ //      console.log(count);
+ //      console.log("This is the stuff in getTodoComp: "+runningCount);
+ //      }else{
+ //      console.log("This is the stuff in getTodoComp: "+runningCount); 
+ //    }    
+ //  }).done(updateCount);
+ // } 
 
 // This function inserts a new todo into our database and then updates the view
   function insertTodo(event) {
     event.preventDefault();
     console.log("Inside of insertTodo");
     var UserId= "req.user";
-    
+
     //var newItem = event;
     var todo = {
       text: $newItemInput.val().trim(),
@@ -107,29 +126,51 @@ getTodos();// this happens on page load to get the tasks and start working on th
     }).done(getTodos);
   }//end of updateTodo  
 
+//This function updates the count in user table
+  function updateCount() {
+    console.log("Update Count ran: "+completionCount);
 
-//*************toggleDone and toggleTodo can probably be combined**********
+    var counts = {
+      completionCount: completionCount
+    }
+    $.ajax({
+      method: "PUT",
+      url: "/app.json/",
+      data: counts   
+    });
+  
+ }
+
+//Marks the task as complete
   function toggleDone() {
     event.preventDefault();
     event.stopPropagation();
     console.log("Inside toggleDone");
-    
+       
     $("input[type=checkbox]:checked").each(function(){
       //toggleArr.push($(this).val());
-    
+  //////completionCount++;
       var todo = {
         id: parseInt($(this).val()),
         complete: true
       }
+
+      var count = {
+        completionCount: completionCount
+      }
       console.log(todo);
       updateTodo(todo);
+////////console.log("Count 142: "+count);
+      updateCount(count);
     });
   }//end of toggledone
 
-  //Deletes a task
+//Deletes a task
   function deleteTodo() {
     console.log("deleteTodo is running.")
+    
     $("input:checkbox:checked").each(function(){      
+           
       var todo = {
         id: parseInt($(this).val()),
       }
@@ -139,10 +180,13 @@ getTodos();// this happens on page load to get the tasks and start working on th
           method: "DELETE",
           url: "/app/todos/",
           data: todo
-        }).done(getTodos);    
-    });
-
+        }).done(getTodos, getUserCount);    
+     });
   }
 
 });
+
+
+
+
 

@@ -32,7 +32,7 @@ module.exports = function(app) {
       res.render("user");
     }
 
-    res.redirect("/login");
+    //res.redirect("/login");
   
 
   });

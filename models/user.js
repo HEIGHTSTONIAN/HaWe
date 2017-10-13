@@ -15,6 +15,11 @@ module.exports = function(sequelize, DataTypes) {
       password: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      completionCount: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
       }
     });
 
