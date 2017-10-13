@@ -46,13 +46,13 @@ getUserCount()
         if (data[i].complete === true) {
           console.log(data[i].complete);
           //completionCount++;
-          console.log(completionCount);
+
           $("div#" + data[i].id).html("Done");
           $("div#" + data[i].id).toggleClass("done");
 
           $("input[type=checkbox][id=" + data[i].id + "]").prop("checked", true);
           $("input[type=checkbox][id=" + data[i].id + "]").prop({disabled : true});
-          
+          $("input[type=checkbox][id=" + data[i].id + "]").addClass("counted");
         }
 
       }
@@ -144,31 +144,35 @@ getUserCount()
 //Marks the task as complete
   function toggleDone() {
     event.preventDefault();
-    event.stopPropagation();
+    //event.stopPropagation();
     console.log("Inside toggleDone");
 
 //need to add a check to see if it has been counted already       
 $("input[type=checkbox]:checked").each(function(){      
       
-    if($("input[type=checkbox]:checked").hasClass("counted")){
+    if($(this).hasClass("counted")){
         console.log("Already counted");
-    }else{  
+  
+    }
 
-      $("input[type=checkbox]:checked").addClass("counted")
+    else{  
+
+      $(this).addClass("counted")
       completionCount++;
       var todo = {
         id: parseInt($(this).val()),
         complete: true
       }
-
+    
       var count = {
         completionCount: completionCount
       }
       console.log(todo);
       updateTodo(todo);
       console.log("Count 162: "+count);
-      updateCount(count);
+      updateCount(count);      
     }//end of else
+
   });
     
 }  
