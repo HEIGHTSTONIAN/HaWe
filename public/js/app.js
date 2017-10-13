@@ -122,7 +122,7 @@ getUserCount()
       method: "PUT",
       url: "/app.json/",
       data: counts   
-    }).done(badgeAlert)
+    });
   
  }
 
@@ -144,6 +144,7 @@ $("input[type=checkbox]:checked").each(function(){
 
       $(this).addClass("counted")
       completionCount++;
+      badgeAlert(completionCount);
       var todo = {
         id: parseInt($(this).val()),
         complete: true
