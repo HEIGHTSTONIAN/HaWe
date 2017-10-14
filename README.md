@@ -21,6 +21,11 @@ For our sign in/ sign up logic, we used Passport.js
 
 Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped into any Express-based web application. 
 
+![2](https://user-images.githubusercontent.com/28790452/31577533-fb77343e-b0d5-11e7-9692-c0a9c2a820ab.gif)
+
+Also we added a validation to help users to sign up correctly.
+ 
+
 ## Project Installation
 
 There are two methods to download the repository.
