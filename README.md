@@ -1,4 +1,4 @@
-# ![hawe](https://user-images.githubusercontent.com/28790452/31577112-44b4c9d4-b0ce-11e7-9b07-54a24534b4d5.png)
+# ![hawe](https://user-images.githubusercontent.com/28790452/31577119-739b3c1a-b0ce-11e7-8493-97b31fd9a881.png)
 
 What was once the difficult choice between using a notebook, legal pad, a stack of Post-it notes or a dozen of to-do apps to manage your personal to-do list is now the really simple choice - **HaWe**.
 Managing tasks in the HaWe is more efficient, more powerful, and simply a better way to be more productive than doing it on paper.
