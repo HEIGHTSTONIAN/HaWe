@@ -69,7 +69,7 @@ getUserCount()
       console.log("This is # of completed tasks in user.js: "+data);
       console.log("Running Count: "+completionCount);
 
-  }).done(getTodos);
+    }).done(getTodos);
 
 }; 
  

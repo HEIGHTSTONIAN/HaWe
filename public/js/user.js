@@ -37,16 +37,16 @@ console.log(10)
      
    }  
    
-   for(var i = 0; i < awarded; i++){ 
-      $("#badges").find("div").eq(i).css("display", "inline")
+   for(var i = 1; i <= awarded; i++){
+
+      var htmlB = '<div class="col col-3-of-12 col-m-2-of-4"><img id=' + i + ' class="badge" src="./img/badges/Halloween-' + i + '.png" alt="badge"></div>'
+
+      console.log(htmlB);
+    
+      $("#badges").hide().html(htmlB).fadeIn('slow');
    }
   console.log("Number of earned badges: "+awarded);
 }
-
-  
-
-
-
 
 
 });//end of module

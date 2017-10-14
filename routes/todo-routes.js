@@ -5,7 +5,7 @@ var db = require("../models");
 //****Will also need to modify if making multiple lists*************
 //*******************************************************************
 module.exports = function(app) {
-
+ 
 //GET route for getting all of the todos
  app.get("/api/todos/", function(req, res) {
 
