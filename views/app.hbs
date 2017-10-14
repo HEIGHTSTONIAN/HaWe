@@ -10,8 +10,11 @@
 	<link rel="stylesheet" href="./css/app.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Mystery+Quest|Henny+Penny" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous"></script>
 	<title>HaWe</title>
 	<!--Add favicon-->
 	<link rel="shortcut icon" type="image/png" href="./img/favicon.png">
@@ -36,12 +39,12 @@
 		<div id="lists-names">
 			<a href="/logout" class="button">Log Out</a>
 		</div>
-		
+
 		<div id="my-canvas"></div>
-			
+
 		<div id="no-character"></div>
 
-		
+
 	</div>
 	<div id="main-content">
 		<div id="new-task">
@@ -68,7 +71,29 @@
 			</form>
 		</div>
 	</div>
-	
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="vertical-alignment-helper">
+			<div class="modal-dialog vertical-align-center">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+
+						</button>
+						<h4 class="modal-title text-center" id="myModalLabel">Congratulations!</h4>
+
+					</div>
+					<div class="modal-body text-center">You have been awarded a new badge!</div>
+					<div class="modal-footer">
+						<a href="/user" class="button">See your badges</a>
+						<button type="button" class="button red" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="./js/app.js"></script>
 	<script src="./js/character.js"></script>
 </body>

@@ -185,7 +185,9 @@ $("input[type=checkbox]:checked").each(function(){
   function badgeAlert(){
 
     if(completionCount % 5 == 0){
-      alert("You have been awarded a new badge!");
+      $("#myModal").modal({
+        backdrop: "static",
+        keyboard: false});
       return;
     }
 
