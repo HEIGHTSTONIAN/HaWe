@@ -136,7 +136,6 @@ function loginUser(username, password) {
   });
 }
 
-<<<<<<< HEAD
 // Get the modal
 var modal = document.getElementById('myModal');
 // Get the <span> element that closes the modal
@@ -154,5 +153,3 @@ window.onclick = function(event) {
       modal.style.display = "none";
   }
 }
-=======
->>>>>>> 56cb1cfb3094f95d8116f9d3cad009ce17b85724
