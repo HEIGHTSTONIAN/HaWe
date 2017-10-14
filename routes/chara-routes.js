@@ -49,4 +49,18 @@ module.exports = function(app) {
         });
         //res.redirect("/app");
     });        
+
+    app.post("/api/charas/update", function(req, res) {
+        db.Chara.update({
+            body: req.body.body,
+            hair: req.body.hair,
+            clothes: req.body.clothes
+          }, {
+            where: { UserId: req.user }
+          })
+          .then(function (dbChara) {
+            console.log(dbChara);
+            res.json(dbChara)
+          });
+    })
 }

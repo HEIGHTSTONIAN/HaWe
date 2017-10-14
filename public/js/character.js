@@ -6,7 +6,11 @@ $(document).ready(function() {
     ////////////////////////////////////////////////////////////
 
     // Get Chara on Page Load
-    $.get("/api/character", function(data) {
+    displayPerson();
+
+    // function to display
+    function displayPerson() {
+      $.get("/api/character", function(data) {
         console.log(data);
 
         $("#no-character").hide().html('<button id="noChara" class="button" style="width: 180px; display: block; margin: 0 auto;">Create Character</button>').fadeIn('slow');
@@ -16,9 +20,11 @@ $(document).ready(function() {
         }
 
         $("#my-canvas").hide().html('<canvas id="myCanvas" width="170" height="220" style="display: block; margin: 0 auto;"></canvas>').fadeIn('slow');
+        displayClothesOptions();
         
         displayChara(data);
         
+
       });
 
     function displayChara(data) {
@@ -27,8 +33,6 @@ $(document).ready(function() {
       var ctx = canvas.getContext("2d")
       
       var images = {};
-  
-      var chara = ["body1", "eyes1", "mouth2", "hair1", "clothes1"];
 
       loadImage("bg");
       loadImage(data[0].body);
@@ -81,9 +85,42 @@ $(document).ready(function() {
     }
 
   }
+    }
+    
 
+    //////////////////////////////////////////////////////////////
+    // Display Options //////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
 
+    function displayClothesOptions() {
+      $("#my-canvas").append('<br><form id="characterForm" style:"display: block; margin: 0 auto;"><select id="bodyB" style="display: block; margin: 0 auto; width: 170px;"><option value="body1">Skin1</option><option value="body2">Skin 2</option><option value="body3">Skin 3</option><option value="body4">Skin 4</option></select><select id="clothes" style="display: block; margin: 0 auto; width: 170px;"><option value="clothes1">Clothes 1</option><option value="clothes2">Clothes 2</option><option value="clothes3">Clothes 3</option></select><select id="hair" style="display: block; margin: 0 auto; width: 170px;"><option value="hair1">Hair 1</option><option value="hair2">Hair 2</option></select><input type="submit" name="action-change-clothes" class="button" id="action-change-clothes" value="Update Character" style="display: block; margin: 0 auto; width: 170px;"/></form>');
+    }
+
+    $(document).on("submit", "#characterForm", changeChara);
   
+    function changeChara() {
+      event.preventDefault();
+
+      var bodyB = $("#bodyB").val().trim();
+      var clothes = $("#clothes").val().trim();
+      var hair = $("#hair").val().trim();
+
+      var UserId = "req.user";
+      
+            $.post("/api/charas/update", {
+              body: bodyB,
+              hair: hair,
+              clothes: clothes,
+              UserId: UserId
+            }).then(function(data) {
+              console.log("data: " + data);
+              displayPerson();
+            }).catch(function(err) {
+              console.log(err);
+            });
+
+    }
+
     //////////////////////////////////////////////////////////////
     // This is for creating new chara ///////////////////////////
     ////////////////////////////////////////////////////////////
@@ -109,14 +146,13 @@ $(document).ready(function() {
         $("#no-character").html("");
 
         $("#my-canvas").hide().html('<canvas id="myCanvas" width="170" height="220" style="display: block; margin: 0 auto;"></canvas>').fadeIn('slow');
+        displayClothesOptions();
 
         // CANVAS STUFF
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d")
         
         var images = {};
-    
-        var chara = ["body1", "eyes1", "mouth2", "hair1", "clothes1"];
   
         loadImage("bg");
         loadImage(data.body);
