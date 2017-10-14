@@ -1,345 +1,341 @@
-body, html
-{
-	display: table;
-	width: 100% !important;
-	height: 100% !important;
-	min-height: 100%;
+body,
+html {
+    display: table;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100%;
 }
 
-body
-{
-	background-color: #f6f6f6;
-	font-family: 'open sans';
-	font-size: 12px;
-	position: absolute; /* IE Fix */
-	overflow-x: hidden;
+body {
+    background-color: #f6f6f6;
+    font-family: 'open sans';
+    font-size: 12px;
+    position: absolute;
+    /* IE Fix */
+    overflow-x: hidden;
 }
 
-h1
-{
-	font-family: 'open sans';
-	font-weight: 600;
-	color: #a4a4a4;
-	font-size: 16px;
+h1 {
+    font-family: 'open sans';
+    font-weight: 600;
+    color: #a4a4a4;
+    font-size: 16px;
 }
 
-h2
-{
-	display: block;
-	font-family: 'open sans';
-	font-weight: normal;
-	padding: 10px 0;
-	margin: 10px;
-	font-size: 16px;
-	text-transform: uppercase;
-	color: #595e75;
-	border-bottom: 3px solid #595e75;
+h2 {
+    display: block;
+    font-family: 'open sans';
+    font-weight: normal;
+    padding: 10px 0;
+    margin: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #595e75;
+    border-bottom: 3px solid #595e75;
 }
 
-a
-{
-	text-decoration: none;
+a {
+    text-decoration: none;
 }
 
-input
-{
-	font-family: 'open sans';
-	display: inline-block;
-	border: none;
-	font-size: 11px;
-	background-color: #f6f6f6;
-	padding: 10px 10px;
-	color: #a4a4a4;
-	outline: none !important;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;
+input {
+    font-family: 'open sans';
+    display: inline-block;
+    border: none;
+    font-size: 11px;
+    background-color: #f6f6f6;
+    padding: 10px 10px;
+    color: #a4a4a4;
+    outline: none !important;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
 }
 
 input:hover,
-input:focus
-{
-	background-color: #f2f2f2;
+input:focus {
+    background-color: #f2f2f2;
 }
 
-.button
-{
-	display: inline-block;
-	font-size: 11px;
-	padding: 10px 10px;
-	border: none;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	color: #121212;
-	background-color: #F78759;
-	text-transform: uppercase;
-	font-family: 'open sans';
-	font-weight: 600;
-	text-align: center;
+.button {
+    display: inline-block;
+    font-size: 11px;
+    padding: 10px 10px;
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #121212;
+    background-color: #F78759;
+    text-transform: uppercase;
+    font-family: 'open sans';
+    font-weight: 600;
+    text-align: center;
 }
 
-.button.red
-{
-	background-color: #121212;
-	color: #F78759;
+.button.red {
+    background-color: #121212;
+    color: #F78759;
 }
 
-.button.red:hover
-{
-	background-color: #222;
+.button.red:hover {
+    background-color: #222;
 }
 
-.button:not([disabled])
-{
-	cursor: pointer;
+.button:not([disabled]) {
+    cursor: pointer;
 }
 
-.button:hover
-{
-	background-color: #fa6904;
+.button:hover {
+    background-color: #fa6904;
 }
 
 div#left-content,
-div#main-content
-{
-	height: 100% !important;
-	min-height: 100%;
-	display: table-cell;
-	vertical-align: top;
+div#main-content {
+    height: 100% !important;
+    min-height: 100%;
+    display: table-cell;
+    vertical-align: top;
 }
 
-div#left-content
-{
-	width: 200px;
-	max-width: 250px;
-	background-color: #121212;
+div#left-content {
+    width: 200px;
+    max-width: 250px;
+    background-color: #121212;
 }
 
-div#left-content div#user-panel
-{
-	position: relative;
-	background-color: #F78759;
-	padding: 20px 10px;
-	margin-bottom: 20px;
+div#left-content div#user-panel {
+    position: relative;
+    background-color: #F78759;
+    padding: 20px 10px;
+    margin-bottom: 20px;
 }
 
-	div#left-content div#user-panel div.avatar
-	{
-		display: inline-block;
-		vertical-align: top;
-		width: 45px;
-		height: 45px;
-		overflow: hidden;
-		-webkit-border-radius: 50px;
-		-moz-border-radius: 50px;
-		border-radius: 50px;
-		margin-right: 10px;
-	}
-
-		div#left-content div#user-panel div.avatar > img
-		{
-			width: 100%;
-			height: 100%;
-		}
-
-	div#left-content div#user-panel div.welcome
-	{
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 10px;
-	}
-
-		div#left-content div#user-panel div.welcome span
-		{
-			color: #121212;
-			text-transform: uppercase;
-		}
-
-		div#left-content div#user-panel div.welcome span.username
-		{
-			color: #121212;
-			font-family: 'open sans';
-			font-weight: 600;
-		}
-
-	div#left-content div#user-panel div.logout
-	{
-		display: none /* !!!!!!!important */;
-		width: 16px;
-		height: 16px;
-		position: absolute;
-		top: 50%;
-		right: 16px;
-		margin-top: -8px;
-	}
-
-		div#left-content div#user-panel div.logout > img
-		{
-			width: 100%;
-			height: 100%;
-		}
-
-div#left-content div#lists-names
-{
-	padding: 0;
+div#left-content div#user-panel div.avatar {
+    display: inline-block;
+    vertical-align: top;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-right: 10px;
 }
 
-	div#left-content div#lists-names div#lists-container
-	{
-		margin-top: 20px;
-	}
+div#left-content div#user-panel div.avatar>img {
+    width: 100%;
+    height: 100%;
+}
 
-	div#left-content div#lists-names div#lists-container div.list,
-	div#main-content div#tasks-list-container ul#tasks-list li
-	{
-		padding: 20px 10px;
-		color: #595e75;
-		position: relative;
-	}
+div#left-content div#user-panel div.welcome {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+}
 
-	div#left-content div#lists-names div#lists-container a:hover div.list
-	{
-		background-color: #121212;
-		color: #FFF;
-	}
+div#left-content div#user-panel div.welcome span {
+    color: #121212;
+    text-transform: uppercase;
+}
 
-		div#left-content div#lists-names div#lists-container div div.remaining,
-		div#tasks-list-container ul#tasks-list  div.status
-		{
-			background: #F78759;
-			font-size: 10px;
-			position: absolute;
-			right: 10px;
-			top: 50%;
-			margin-top: -10px;
-			padding: 5px 10px;
-			color: #121212;
-			text-align: center;
-			-webkit-border-radius: 50px;
-			-moz-border-radius: 50px;
-			border-radius: 50px;
-			min-width: 20px;
-			text-transform: uppercase;
-		}
+div#left-content div#user-panel div.welcome span.username {
+    color: #121212;
+    font-family: 'open sans';
+    font-weight: 600;
+}
 
-	div#left-content div#lists-names a.button
-	{
-		display: block;
-		margin: 10px;
-	}
+div#left-content div#user-panel div.logout {
+    display: none/* !!!!!!!important */
+    ;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -8px;
+}
+
+div#left-content div#user-panel div.logout>img {
+    width: 100%;
+    height: 100%;
+}
+
+div#left-content div#lists-names {
+    padding: 0;
+}
+
+div#left-content div#lists-names div#lists-container {
+    margin-top: 20px;
+}
+
+div#left-content div#lists-names div#lists-container div.list,
+div#main-content div#tasks-list-container ul#tasks-list li {
+    padding: 20px 10px;
+    color: #595e75;
+    position: relative;
+}
+
+div#left-content div#lists-names div#lists-container a:hover div.list {
+    background-color: #121212;
+    color: #FFF;
+}
+
+div#left-content div#lists-names div#lists-container div div.remaining,
+div#tasks-list-container ul#tasks-list div.status {
+    background: #F78759;
+    font-size: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+    padding: 5px 10px;
+    color: #121212;
+    text-align: center;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    min-width: 20px;
+    text-transform: uppercase;
+}
+
+div#left-content div#lists-names a.button {
+    display: block;
+    margin: 10px;
+}
 
 div#main-content header,
-div#main-content div#new-task
-{
-	background-color: #FFF;
-	padding: 20px 20px;
-	margin-bottom: 5px;
+div#main-content div#new-task {
+    background-color: #FFF;
+    padding: 20px 20px;
+    margin-bottom: 5px;
 }
 
-div#main-content div#new-task
-{
-	padding: 10px 20px;
+div#main-content div#new-task {
+    padding: 10px 20px;
 }
 
-div#main-content header
-{
-	height: 45px;
+div#main-content header {
+    height: 45px;
 }
 
-	div#main-content header div.list-name,
-	div#main-content header div.list-actions
-	{
-		display: inline-block;
-		margin-top: 15px;
-	}
-
-	div#main-content header div.list-actions
-	{
-		float: right;
-	}
-
-div#main-content div#new-task div#new-task-form
-{
-	width: 100%;
-	display: table;
+div#main-content header div.list-name,
+div#main-content header div.list-actions {
+    display: inline-block;
+    margin-top: 15px;
 }
 
-div#main-content div#new-task div#new-task-form div
-{
-	display: table-cell;
+div#main-content header div.list-actions {
+    float: right;
 }
 
-div#main-content div#new-task div#new-task-form div:last-child
-{
-	padding-left: 10px;
-	width: 100px;
+div#main-content div#new-task div#new-task-form {
+    width: 100%;
+    display: table;
 }
 
-div#main-content div#new-task div#new-task-form div input
-{
-	width: 100%;
+div#main-content div#new-task div#new-task-form div {
+    display: table-cell;
 }
 
-div#tasks-list-container
-{
-	padding: 0 20px;
-	background-color: white;
+div#main-content div#new-task div#new-task-form div:last-child {
+    padding-left: 10px;
+    width: 100px;
 }
 
-	div#tasks-list-container ul#tasks-list
-	{
-		list-style: none !important;
-	}
+div#main-content div#new-task div#new-task-form div input {
+    width: 100%;
+}
 
-	div#main-content div#tasks-list-container ul#tasks-list li
-	{
-		padding-left: 40px;
-		padding-right: 40px;
-		border-bottom: 1px solid #f4f4f4;
-	}
+div#tasks-list-container {
+    padding: 0 20px;
+    background-color: white;
+}
 
-	div#tasks-list-container ul#tasks-list  input.check-status,
-	div#tasks-list-container ul#tasks-list  div.status
-	{
-		position: absolute;
-	}
+div#tasks-list-container ul#tasks-list {
+    list-style: none !important;
+}
 
-	div#tasks-list-container ul#tasks-list  input.check-status
-	{
-		display: block;
-		width: 16px;
-		height: 16px;
-		top: 50%;
-		left: 0;
-		margin-top: -7px;
-		padding: 0;
-	}
+div#main-content div#tasks-list-container ul#tasks-list li {
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: 1px solid #f4f4f4;
+}
 
-	div#tasks-list-container ul#tasks-list  input.check-status:checked + span
-	{
-		font-family: 'open sans';
-		font-weight: 600;
-	}
+div#tasks-list-container ul#tasks-list input.check-status,
+div#tasks-list-container ul#tasks-list div.status {
+    position: absolute;
+}
 
-	div#tasks-list-container ul#tasks-list  div.status
-	{
-		background-color: #cfcfcf;
-	}
+div#tasks-list-container ul#tasks-list input.check-status {
+    display: block;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 0;
+    margin-top: -7px;
+    padding: 0;
+}
 
-	div#tasks-list-container ul#tasks-list  div.status.done
-	{
-		background-color: #F78759;
-	}
+div#tasks-list-container ul#tasks-list input.check-status:checked+span {
+    font-family: 'open sans';
+    font-weight: 600;
+}
 
-	div#tasks-list-container div#tasks-list-actions
-	{
-		padding: 20px 0;
-		background-color: white;
-		text-align: right;
-	}
+div#tasks-list-container ul#tasks-list div.status {
+    background-color: #cfcfcf;
+}
 
+div#tasks-list-container ul#tasks-list div.status.done {
+    background-color: #F78759;
+}
+
+div#tasks-list-container div#tasks-list-actions {
+    padding: 20px 0;
+    background-color: white;
+    text-align: right;
+}
+
+.vertical-alignment-helper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width: inherit;
+    height: inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none !important;
+    color: #121212 !important;
+}
+
+#myModalLabel {
+    font-family: Henny Penny;
+    font-size: 26px;
+}
+
+.modal-body {
+    font-family: Mystery Quest;
+    font-size: 20px;
+}
+
+*:focus {
+    outline: none !important
+}
