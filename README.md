@@ -11,9 +11,15 @@ Everyone likes competitions. ![hawe](https://user-images.githubusercontent.com/2
  allows you to collect badges while you do you planned tasks.
 
 ## How it works
-![1](https://user-images.githubusercontent.com/28790452/31577185-ce8d5b2a-b0cf-11e7-9bb8-da4c64d63684.gif)
+![1](https://user-images.githubusercontent.com/28790452/31577395-0cc32674-b0d3-11e7-9be4-2258616ec89c.gif)
 
-Our app has user-friendly navigation.
+Our app has user-friendly navigation. User can quickly navigate between 3 sections - App, About and Team.
+
+![1](https://user-images.githubusercontent.com/28790452/31577494-2d132e40-b0d5-11e7-9c39-67600a64c89c.gif)
+
+For our sign in/ sign up logic, we used Passport.js
+
+Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped into any Express-based web application. 
 
 ## Project Installation
 
