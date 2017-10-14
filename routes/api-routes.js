@@ -11,7 +11,7 @@ module.exports = function (app) {
     });
 
     //Getting User Sign Up info to Database
-    app.post("/api/register", function (req, res) {
+    app.post("/login", function (req, res) {
 
         console.log("signing up");
 
@@ -33,7 +33,7 @@ module.exports = function (app) {
 
         if (errors) {
             console.log(errors);
-            res.redirect('/login');
+            res.render('login', {errors: errors});
         } else {
             db.User.create({
                 username: username,
@@ -41,6 +41,7 @@ module.exports = function (app) {
                 password: password
             }).then(function (dbUser) {
                 console.log("User Created.");
+                console.log(dbUser);
                 res.redirect('/login');
             });
 
