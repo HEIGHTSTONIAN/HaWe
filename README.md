@@ -17,6 +17,10 @@ Our app has user-friendly navigation. User can quickly navigate between 3 sectio
 
 ![2](https://user-images.githubusercontent.com/28790452/31577396-153fb358-b0d3-11e7-8f93-1c39e8948206.gif)
 
+For our sign in/ sign up logic, we used Passport.js
+
+Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped into any Express-based web application. 
+
 ## Project Installation
 
 There are two methods to download the repository.
