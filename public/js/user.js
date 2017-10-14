@@ -43,7 +43,7 @@ console.log(10)
 
       console.log(htmlB);
     
-      $("#badges").hide().html(htmlB).fadeIn('slow');
+      $("#badges").hide().prepend(htmlB).fadeIn('slow');
    }
   console.log("Number of earned badges: "+awarded);
 }
