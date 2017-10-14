@@ -13,7 +13,7 @@ Everyone likes competitions. ![hawe](https://user-images.githubusercontent.com/2
 ## How it works
 ![1](https://user-images.githubusercontent.com/28790452/31577395-0cc32674-b0d3-11e7-9be4-2258616ec89c.gif)
 
-Our app has user-friendly navigation.
+Our app has user-friendly navigation. User can quickly navigate between 3 sections - App, About and Team.
 
 ![2](https://user-images.githubusercontent.com/28790452/31577396-153fb358-b0d3-11e7-8f93-1c39e8948206.gif)
 
