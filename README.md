@@ -10,6 +10,11 @@ Our app gives you a range of tools for organizing your tasks.
 Everyone likes competitions. ![hawe](https://user-images.githubusercontent.com/28790452/31577131-9d82d6d2-b0ce-11e7-8553-c5485eeff890.png)
  allows you to collect badges while you do you planned tasks.
 
+## How it works
+![1](https://user-images.githubusercontent.com/28790452/31577185-ce8d5b2a-b0cf-11e7-9bb8-da4c64d63684.gif)
+
+Our app has user-friendly navigation.
+
 ## Project Installation
 
 There are two methods to download the repository.
