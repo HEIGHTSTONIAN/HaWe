@@ -54,7 +54,7 @@ module.exports = function (app) {
         req.logout();
         res.redirect("/");
     });
-
+ 
 
     // Route to get username/other data
     app.get("/app", function(req, res){
