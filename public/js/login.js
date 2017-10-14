@@ -136,9 +136,12 @@ function loginUser(username, password) {
   });
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> a552976a4567b7c819cff61530cea3b329c59c7e
 // Get the modal
 var modal = document.getElementById('myModal');
 // Get the <span> element that closes the modal
@@ -156,5 +159,8 @@ window.onclick = function(event) {
       modal.style.display = "none";
   }
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a552976a4567b7c819cff61530cea3b329c59c7e
