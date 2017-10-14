@@ -18,13 +18,7 @@
 
 <div class="box">
 
-  {{#if errors}}
-      {{#each errors}}
-      <div>
-        {{this.msg}}
-      </div>
-      {{/each}}
-    {{/if}}
+  
   
   <div class="icon-nav">
     <span id="sign-in"><i class="fa fa-user"></i></span></span>
@@ -63,7 +57,13 @@
       <input class="password" name="passwordMatch" type="password" placeholder="confirm password" onfocus="this.placeholder = '' " onblur="this.placeholder = 'confirm password'">
       <input class="cassandra" type="submit" value="sign up">
     </form>
-    
+    {{#if errors}}
+      {{#each errors}}
+      <div>
+        {{this.msg}}
+      </div>
+      {{/each}}
+    {{/if}}
 </div>
   
 </div>
