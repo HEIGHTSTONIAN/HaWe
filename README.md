@@ -27,6 +27,18 @@ Also we added a validation to help users to sign up correctly.
 
 ![1](https://user-images.githubusercontent.com/28790452/31577632-154cb9a4-b0d8-11e7-8144-914c192543a1.gif)
 
+When the user logged in the app allows the user to create a to-do list, marked tasks as "Done" and delete tasks.
+
+![1](https://user-images.githubusercontent.com/28790452/31577709-288c08ac-b0d9-11e7-9102-9a34deb441e6.gif)
+
+When you are done with every 5 tasks you will earn a badge.
+
+![1](https://user-images.githubusercontent.com/28790452/31577730-9ced1f38-b0d9-11e7-8c07-efc0253352a9.gif)
+
+Also, you can create your own character while you are using our app.
+
+![1](https://user-images.githubusercontent.com/28790452/31577752-038fb232-b0da-11e7-94ce-0de4f0c30412.gif)
+
 ## Project Installation
 
 There are two methods to download the repository.
