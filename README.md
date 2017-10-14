@@ -15,7 +15,7 @@ Everyone likes competitions. ![hawe](https://user-images.githubusercontent.com/2
 
 Our app has user-friendly navigation. User can quickly navigate between 3 sections - App, About and Team.
 
-![2](https://user-images.githubusercontent.com/28790452/31577396-153fb358-b0d3-11e7-8f93-1c39e8948206.gif)
+![1](https://user-images.githubusercontent.com/28790452/31577494-2d132e40-b0d5-11e7-9c39-67600a64c89c.gif)
 
 For our sign in/ sign up logic, we used Passport.js
 
