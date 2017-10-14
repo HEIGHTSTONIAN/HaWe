@@ -11,9 +11,11 @@ Everyone likes competitions. ![hawe](https://user-images.githubusercontent.com/2
  allows you to collect badges while you do you planned tasks.
 
 ## How it works
-![1](https://user-images.githubusercontent.com/28790452/31577185-ce8d5b2a-b0cf-11e7-9bb8-da4c64d63684.gif)
+![1](https://user-images.githubusercontent.com/28790452/31577395-0cc32674-b0d3-11e7-9be4-2258616ec89c.gif)
 
 Our app has user-friendly navigation.
+
+![2](https://user-images.githubusercontent.com/28790452/31577396-153fb358-b0d3-11e7-8f93-1c39e8948206.gif)
 
 ## Project Installation
 
