@@ -1,11 +1,11 @@
 # HaWe
 
-What was once the difficult choice between using a notebook, legal pad, a stack of Post-it notes or a dozen of to-do apps to manage your personal to-do list is now the really simple choice - *HaWe*.
+What was once the difficult choice between using a notebook, legal pad, a stack of Post-it notes or a dozen of to-do apps to manage your personal to-do list is now the really simple choice - **HaWe**.
 Managing tasks in the HaWe is more efficient, more powerful, and simply a better way to be more productive than doing it on paper.
 
-*HaWe* is easy to use and has a deep thematic in styling.
+**HaWe** is easy to use and has a deep thematic in styling.
 Our app gives you a range of tools for organizing your tasks.
-Everyone likes competitions. *HaWe* allows you to collect badges while you do you planned tasks.
+Everyone likes competitions. **HaWe** allows you to collect badges while you do you planned tasks.
 
 ## Project Installation
 
