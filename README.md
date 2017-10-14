@@ -13,7 +13,7 @@ Everyone likes competitions. ![hawe](https://user-images.githubusercontent.com/2
 ## How it works
 ![1](https://user-images.githubusercontent.com/28790452/31577395-0cc32674-b0d3-11e7-9be4-2258616ec89c.gif)
 
-Our app has user-friendly navigation. User can quickly navigate between 3 sections - App, About and Team.
+Our app has user-friendly navigation. You can quickly navigate between 3 sections - App, About and Team.
 
 ![1](https://user-images.githubusercontent.com/28790452/31577494-2d132e40-b0d5-11e7-9c39-67600a64c89c.gif)
 
@@ -26,6 +26,18 @@ Passport is authentication middleware for Node.js. Extremely flexible and modula
 Also we added a validation to help users to sign up correctly.
 
 ![1](https://user-images.githubusercontent.com/28790452/31577632-154cb9a4-b0d8-11e7-8144-914c192543a1.gif)
+
+When you logged in the app allows you to create a to-do list, marked tasks as "Done" and delete tasks.
+
+![1](https://user-images.githubusercontent.com/28790452/31577709-288c08ac-b0d9-11e7-9102-9a34deb441e6.gif)
+
+When you are done with every 5 tasks you will earn a badge.
+
+![1](https://user-images.githubusercontent.com/28790452/31577730-9ced1f38-b0d9-11e7-8c07-efc0253352a9.gif)
+
+Also, you can create your own character while you are using our app.
+
+![1](https://user-images.githubusercontent.com/28790452/31577752-038fb232-b0da-11e7-94ce-0de4f0c30412.gif)
 
 ## Project Installation
 
